@@ -1,0 +1,40 @@
+html body {
+    padding: 0;
+    margin: 0;
+}
+
+.showcase {
+    background-image: url("../image/hamburger-and-fries-photo-2983101.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 50vh;
+}
+
+.showcase p {
+    color: #fff;
+    font-size: 150%;
+    font-weight: 500;
+    text-transform: capitalize;
+    text-shadow: 1px 1px 10px #000;
+}
+
+.headingText {
+    color: #fff;
+    font-size: 500%;
+    font-weight: 700;
+    text-transform: capitalize;
+    text-shadow: 1px 1px 10px #000;
+    
+}
+
+.about h1 {
+    letter-spacing: 2px;
+    color: rgb(56, 55, 55);
+}
+
+.about p {
+    line-height: 1.7em;
+    font-size: 1.2rem;
+}

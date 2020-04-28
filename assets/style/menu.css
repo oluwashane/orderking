@@ -1,0 +1,57 @@
+.navigation {
+    padding: .4rem;
+    background-color: #efefef;
+    
+}
+
+.navigation a {
+    color: #438496;
+}
+
+.navigation a:hover {
+    text-decoration: none;
+}
+
+.cartCounter {
+    color: #438496;
+}
+
+.outerBox {
+    width: 100%;
+    height: 50px;
+    padding: .3rem;
+    margin-top: 2rem;
+}
+
+.innerBox {
+    width: 80%;
+    margin: auto;
+}
+
+
+.input {
+    margin: auto;
+}
+
+.searchInput {
+    height: 2.4rem;
+    width: 80%;
+    border: 1px solid #438496;
+}
+
+.searchBtn {
+    border: none;
+    height: 2.4rem;
+    width: 50px;
+    background-color: #fff;
+    border: 1px solid #438496;
+    color: #438496;
+}
+
+.menu {
+    padding: 5rem;
+}
+
+.picture {
+    width: 100%;
+}
