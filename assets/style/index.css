@@ -20,10 +20,12 @@ html body {
     text-shadow: 1px 1px 10px #000;
 }
 
-.headingText {
+.headingText h2{
     color: #fff;
-    font-size: 500%;
+    padding-top: 40px;
+    font-size: 3rem;
     font-weight: 700;
+    letter-spacing: 5px;
     text-transform: capitalize;
     text-shadow: 1px 1px 10px #000;
     
@@ -31,10 +33,10 @@ html body {
 
 .about h1 {
     letter-spacing: 2px;
-    color: rgb(56, 55, 55);
+    color: rgb(5, 143, 124);
 }
 
 .about p {
     line-height: 1.7em;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
