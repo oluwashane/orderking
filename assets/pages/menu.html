@@ -10,22 +10,15 @@
 </head>
 <body>
     <!-- nav -->
-    <div class="container-fluid navigation">
-        <div class="row">
-            <div class="col-10 col-md-10">
-                <h3 class="text-center"><a href="../../index.html" class="">OrderKing Menu</a></h3>
-            </div>
-            <div class="col-2 col-md-2  d-flex justify-content-center">
-                <div class="row align-items-center">
-                    <a href="">
-                        <i class="fa fa-shopping-cart cartCounter" aria-hidden="true"></i>
-                        <span class="badge badge-light ">4</span>
-                    </a>
-                </div>
-                
-            </div>
+    <div class="nav-header">
+        <h3><a href="../../index.html">OrderKing Menu</a></h3>
+
+        <div class="align-items-center border chart" id="shoppingCart">
+                <i class="fa fa-shopping-cart cartCounter" aria-hidden="true"></i>
+                <span class="badge badge-light">0</span>
         </div>
     </div>
+
     <!-- search section -->
     <div class="container-fluid">
         <div class="outerBox">
@@ -37,57 +30,94 @@
             </div>
         </div>
     </div>
+
     <!-- Random Food -->
-    <div class="container-fluid menu">
-        <div class="row">
+    <div class="container-fluid">
+        <div class="row menu">
             <div class="col-12 col-sm-6 col-md-4" id="menuItem">
                 <img src="../image/hot-dog-21074_640.jpg" class="picture" alt="hotdog">
-                <div class="description">
-                    <p class="lead">HotDog</p>
-                    <p class="lead">Price:</p>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Nemo possimus quos reprehenderit exercitationem optio quas alias enim?
-                    </p>
+                <div class="menuContent">
+                    <span>Name:</span><p class="lead menuItemName">HotDog</p>
+                    <span>Price:</span><p class="lead menuItemPrice">500</p>
                 </div>
                 
-                <button>order</button>
+                <button class="orderBtn">order</button>
             </div>
             <div class="col-12 col-sm-6 col-md-4" id="menuItem">
                 <img src="../image/hot-dog-21074_640.jpg" class="picture" alt="hotdog">
-                <div class="description">
-                    <p class="lead">HotDog</p>
-                    <p class="lead">Price:</p>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Nemo possimus quos reprehenderit exercitationem optio quas alias enim?
-                    </p>
+                <div class="menuContent">
+                    <span>Name: </span><p class="lead">Cat fish</p>
+                    <span>Price: </span><p class="lead">Price: 2500</p>
                 </div>
-                <button>order</button>
+                <button class="orderBtn">order</button>
             </div>
             <div class="col-12 col-sm-6 col-md-4" id="menuItem">
                 <img src="../image/hot-dog-21074_640.jpg" class="picture" alt="hotdog">
-                <div class="description">
-                    <p class="lead">HotDog</p>
-                    <p class="lead">Price:</p>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Nemo possimus quos reprehenderit exercitationem optio quas alias enim?
-                    </p>
+                <div class="menuContent">
+                    <span>Name:</span><p class="lead">turkey</p>
+                    <span>Price:</span><p class="lead">500</p>
                 </div>
-                <button>order</button>
+                <button class="orderBtn">order</button>
             </div>
         </div>
     </div>
+
+    <!-- Order Section -->
+    
+    <div class="order">
+        <input type="button" value="close" id="orderCloseButton">
+        <div id="printOut">
+            <div class="orderHeader">
+                <h3>OrderKing</h3>
+            </div>
+            <div class="orderContent">
+                <div class="table-responsive-md tbl">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Qty</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+                            <!-- <tr>
+                                <th scope="row">1</th>
+                                <td>Hot Dog</td>
+                                <td>#900</td>
+                                <td><input type="button" value="x"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td><input type="button" value="x"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td><input type="button" value="x"></td>
+                            </tr>
+                        </tbody> -->
+                    </table>
+                </div> 
+                <div class="orderBtn">
+                    <button>
+                        Place Order
+                    </button> 
+                </div>  
+            </div>
+        </div>    
+    </div>
     <!-- footer -->
     <footer>
-        <div class="text-center align-self-end">
             <p>&copy; copyright 2020</p>
-        </div>
     </footer>
     <!-- js -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="../script/order.js"></script>
 </body>
 </html>

@@ -1,16 +1,35 @@
-.navigation {
-    padding: .4rem;
+.nav-header {
     background-color: #efefef;
-    
+    padding: .5rem 0;
+    display: flex;
 }
 
-.navigation a {
+.nav-header h3 a {
+    padding-left: 17px;
     color: #438496;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 2px;
+    overflow: hidden;
 }
 
-.navigation a:hover {
+.nav-header .chart {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    margin-right: 20px;
+    padding: 10px;
+    font-size: 1rem;
     text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
 }
+
 
 .cartCounter {
     color: #438496;
@@ -54,4 +73,77 @@
 
 .picture {
     width: 100%;
+}
+
+/* Order Section */
+.order {
+    background-color: #fff;
+    width: 40%;
+    position: absolute;
+    display: none;
+    top: 54px;
+    right: 0;
+}
+
+#orderCloseButton {
+    margin: 15px 0 0 10px;
+    border: none;
+    text-transform: uppercase;
+    font-size: .9rem;
+    letter-spacing: 2px;
+}
+
+.order #printOut {
+    margin: auto;
+    padding-top: 30px;
+    width: 100%;
+}
+
+.order #printOut .orderHeader h3{
+    text-align: center;
+    color: #438496;
+}
+
+.order #printOut .orderContent {
+    text-align: center;
+    padding: 0 20px;
+}
+
+table {
+    margin: auto;
+    width: 70%;
+}
+
+.orderBtn {
+    text-align: center;
+    padding: 15px 0;
+}
+
+.orderBtn button {
+    border: none;
+    padding: 8px;
+    color: #fff;
+    background-color: #438496;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+
+footer{ 
+    width: 100%;
+    text-align: center;
+}
+@media (max-width: 768px) {
+    .order {
+        background-color: #fff;
+        width: 60%;
+    }
+}
+
+@media (max-width: 576px) {
+    .order {
+        background-color: #fff;
+        width: 100%;
+    }
+
 }
