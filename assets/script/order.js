@@ -6,13 +6,16 @@ const orderContent = document.querySelector(".orderContent");
 const badge = document.querySelector(".badge");
 let cartBody = document.querySelector("#tbody");
 
+let badgeCount = 1;
+
 window.addEventListener('load', function(e) {
     console.log('All assets are loaded')
     const checkStorage = JSON.parse(localStorage.getItem("orderArr"));
     if (!checkStorage) {
         this.console.log("No storage allocated")
     } else {
-        badge.innerHTML = checkStorage.length
+        badge.innerHTML = checkStorage.length;
+        badgeCount = checkStorage.length;
         checkStorage.forEach((data) => {
             cartBody.innerHTML += `
                 <tr>
@@ -27,7 +30,7 @@ window.addEventListener('load', function(e) {
 })
 
 // Badge section
-let badgeCount = 1;
+
 function increaseBadge() {
     badge.innerHTML = badgeCount++
 }
