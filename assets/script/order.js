@@ -42,7 +42,6 @@ function addOrder (e) {
     const menuItemName = e.target.previousElementSibling.children[1].innerText;
     const menuItemPrice = e.target.previousElementSibling.children[3].innerText;
     if (e.target.classList.value === "orderBtn") {
-        increaseBadge();
         storeInLocalStorage(menuItemName, menuItemPrice); 
         cartBody.innerHTML += `
                 <tr>
@@ -51,6 +50,7 @@ function addOrder (e) {
                     <td>${menuItemPrice}</td>
                     <td><input type="button" value="x"></td>
                 </tr>` 
+        increaseBadge();
     }
     e.preventDefault()
 }
