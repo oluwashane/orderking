@@ -6,7 +6,7 @@ const orderContent = document.querySelector(".orderContent");
 const badge = document.querySelector(".badge");
 let cartBody = document.querySelector("#tbody");
 
-let badgeCount = 1;
+let badgeCount;
 
 window.addEventListener('load', function(e) {
     console.log('All assets are loaded')
@@ -14,8 +14,8 @@ window.addEventListener('load', function(e) {
     if (!checkStorage) {
         this.console.log("No storage allocated")
     } else {
-        badge.innerHTML = checkStorage.length;
         badgeCount = checkStorage.length;
+        increaseBadge()
         checkStorage.forEach((data) => {
             cartBody.innerHTML += `
                 <tr>
@@ -30,7 +30,6 @@ window.addEventListener('load', function(e) {
 })
 
 // Badge section
-
 function increaseBadge() {
     badge.innerHTML = badgeCount++
 }
