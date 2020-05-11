@@ -53,6 +53,7 @@
 }
 
 .searchInput {
+    text-align: center;
     height: 2.4rem;
     width: 80%;
     border: 1px solid #438496;
@@ -71,8 +72,26 @@
     padding: 5rem;
 }
 
-.picture {
+.menuPicture {
     width: 100%;
+}
+
+.menuContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.orderBtn {
+    background-color: #438496;
+    color: #efefef;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    width: 100%;
+    padding: 7px;
+    margin-bottom: 20px;
+    border: none;
 }
 
 /* Order Section */
@@ -112,14 +131,32 @@
 table {
     margin: auto;
     width: 70%;
+    padding: 0 20px;
 }
 
-.orderBtn {
+.cartQuantityInput {
+    width: 100%;
+    border: 1px solid #438496;
+    text-align: center;
+}
+
+.itemName {
+    padding: 0 50px;
+}
+
+.removeOrder {
+    margin: 0 20px 0 20px;
+    background: red;
+    border: none;
+    color: #fff;
+}
+
+.purchaseSection {
     text-align: center;
     padding: 15px 0;
 }
 
-.orderBtn button {
+.purchaseSection button {
     border: none;
     padding: 8px;
     color: #fff;
@@ -128,10 +165,7 @@ table {
     text-transform: uppercase;
 }
 
-.cartQuantityInput {
-    width: 35%;
-    text-align: center;
-}
+
 
 
 footer{ 
@@ -142,6 +176,14 @@ footer{
     .order {
         background-color: #fff;
         width: 60%;
+    }
+
+    .nav-header h3 a {
+        font-size: 21px;
+    }
+    
+    .innerBox {
+        width: 100%;
     }
 }
 

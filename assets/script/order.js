@@ -61,7 +61,8 @@ function addClickedItem (e) {
     const title = menuItem.getElementsByClassName("menuItemName")[0].innerText;
     const price = menuItem.getElementsByClassName("menuItemPrice")[0].innerText;
     addItemToCart(title, price);
-    e.preventDefault()
+    updateCartTotal();
+    e.preventDefault();
 }
 
 
@@ -76,18 +77,17 @@ function addItemToCart (itemName, itemPrice) {
             return
         }
     }
-
+    // showToast()
     const cartContent = `
                 <th scope="row">
                     <input type="text" name="quantity" class="cartQuantityInput" value = 1>
                 </th>
-                <td class="cart-item-name">${itemName}</td>
+                <td class="cart-item-name itemName">${itemName}</td>
                 <td class="cartPrice">${itemPrice}</td>
                 <td><input type="button" value="x" class="removeOrder"></td>
         `
     cartStructure.innerHTML = cartContent;
     cartBody.append(cartStructure);
-    updateCartTotal()
     updateCart()
 }
 
@@ -153,6 +153,7 @@ function updateCartTotal() {
     total = Math.round(total * 100)/100
     document.getElementsByClassName("cartTotalPrice")[0].innerText = `₦${total}`;
 }
+
 
 
 
