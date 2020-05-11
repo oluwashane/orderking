@@ -4,7 +4,7 @@ const shoppingCart = document.querySelector("#shoppingCart");
 const cartCloseButton = document.querySelector("#orderCloseButton");
 const orderContent = document.querySelector(".orderContent");
 const badge = document.querySelector(".badge");
-let cartBody = document.querySelector("#tbody");
+
 
 
 let badgeCount;
@@ -66,19 +66,27 @@ function addClickedItem (e) {
 
 
 function addItemToCart (itemName, itemPrice) {
-    // const defaultQty = 1;
-    const cartRow = document.createElement('tr');
-    cartRow.className ='cartRow';
+    const cartStructure = document.createElement('tr');
+    cartStructure.className ='cartRow';
+    let cartBody = document.getElementsByClassName("cartContainer")[0];
+    const cartItemName = cartBody.getElementsByClassName("cart-item-name");
+    for (let i = 0; i < cartItemName.length; i++) {
+        if (cartItemName[i].innerText == itemName) {
+            alert("This item is already added to the cart");
+            return
+        }
+    }
+
     const cartContent = `
                 <th scope="row">
                     <input type="text" name="quantity" class="cartQuantityInput" value = 1>
                 </th>
-                <td>${itemName}</td>
+                <td class="cart-item-name">${itemName}</td>
                 <td class="cartPrice">${itemPrice}</td>
                 <td><input type="button" value="x" class="removeOrder"></td>
         `
-    cartRow.innerHTML = cartContent;
-    cartBody.append(cartRow);
+    cartStructure.innerHTML = cartContent;
+    cartBody.append(cartStructure);
     updateCartTotal()
     updateCart()
 }
