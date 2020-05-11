@@ -34,28 +34,28 @@
     <!-- Random Food -->
     <div class="container-fluid">
         <div class="row menu">
-            <div class="col-12 col-sm-6 col-md-4" id="menuItem">
+            <div class="col-12 col-sm-6 col-md-4 menuItem" id="menuItem">
                 <img src="../image/hot-dog-21074_640.jpg" class="picture" alt="hotdog">
                 <div class="menuContent">
                     <span>Name:</span><p class="lead menuItemName">HotDog</p>
-                    <span>Price:</span><p class="lead menuItemPrice">500</p>
+                    <span>Price:</span><p class="lead menuItemPrice">₦500</p>
                 </div>
                 
                 <button class="orderBtn">order</button>
             </div>
-            <div class="col-12 col-sm-6 col-md-4" id="menuItem">
+            <div class="col-12 col-sm-6 col-md-4 menuItem" id="menuItem">
                 <img src="../image/hot-dog-21074_640.jpg" class="picture" alt="hotdog">
                 <div class="menuContent">
-                    <span>Name: </span><p class="lead">Cat fish</p>
-                    <span>Price: </span><p class="lead">Price: 2500</p>
+                    <span>Name: </span><p class="lead menuItemName">Cat fish</p>
+                    <span>Price: </span><p class="lead menuItemPrice">₦2500</p>
                 </div>
                 <button class="orderBtn">order</button>
             </div>
-            <div class="col-12 col-sm-6 col-md-4" id="menuItem">
+            <div class="col-12 col-sm-6 col-md-4 menuItem" id="menuItem">
                 <img src="../image/hot-dog-21074_640.jpg" class="picture" alt="hotdog">
                 <div class="menuContent">
-                    <span>Name:</span><p class="lead">turkey</p>
-                    <span>Price:</span><p class="lead">500</p>
+                    <span>Name:</span><p class="lead menuItemName">turkey</p>
+                    <span>Price:</span><p class="lead menuItemPrice">₦500</p>
                 </div>
                 <button class="orderBtn">order</button>
             </div>
@@ -80,29 +80,41 @@
                                 <th scope="col">Price</th>
                             </tr>
                         </thead>
-                        <tbody id="tbody">
-                            <!-- <tr>
-                                <th scope="row">1</th>
+                        <tbody id="tbody" class="cartContainer">
+                            <!-- <tr class="cartRow">
+                                <th scope="row">
+                                    <input type="text" name="quantity" class="cartQuantityInput" value="3">
+                                </th>
                                 <td>Hot Dog</td>
-                                <td>#900</td>
-                                <td><input type="button" value="x"></td>
+                                <td class="cartPrice">₦9.00</td>
+                                <td><input type="button" value="x" class="removeOrder"></td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td><input type="button" value="x"></td>
+
+                            <tr class="cartRow">
+                                <th scope="row">
+                                    <input type="text" name="quantity" class="cartQuantityInput" value="2">
+                                </th>
+                                <td>Cat Fish</td>
+                                <td class="cartPrice">₦9.99</td>
+                                <td><input type="button" value="x" class="removeOrder"></td>
                             </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td><input type="button" value="x"></td>
-                            </tr>
-                        </tbody> -->
+
+                            <tr class="cartRow">
+                                <th scope="row">
+                                    <input type="text" name="quantity" class="cartQuantityInput" value="3">
+                                </th>
+                                <td>Turkey</td>
+                                <td class="cartPrice">₦19.99</td>
+                                <td><input type="button" value="x" class="removeOrder"></td>
+                            </tr> -->
+                        </tbody>
                     </table>
+                </div>
+                <div id="cartTotal">
+                    <strong class="cartTotalTitle">Total:</strong>
+                    <span class="cartTotalPrice">0</span>
                 </div> 
-                <div class="orderBtn">
+                <div class="#">
                     <button>
                         Place Order
                     </button> 
