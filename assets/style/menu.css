@@ -69,17 +69,25 @@
 }
 
 .menu {
-    padding: 5rem;
+    padding: 5rem; 
 }
+
+
 
 .menuPicture {
     width: 100%;
 }
 
 .menuContent {
+    margin-top: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    
+}
+
+.menuContent p {
+    font-weight: 600;
 }
 
 .orderBtn {
@@ -88,7 +96,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
-    width: 100%;
+    width: 50%;
     padding: 7px;
     margin-bottom: 20px;
     border: none;
@@ -184,6 +192,10 @@ footer{
     
     .innerBox {
         width: 100%;
+    }
+
+    .menu {
+        padding: 2rem; 
     }
 }
 

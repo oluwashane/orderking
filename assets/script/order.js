@@ -3,12 +3,6 @@ const orderSection = document.querySelector(".order");
 const shoppingCart = document.querySelector("#shoppingCart");
 const cartCloseButton = document.querySelector("#orderCloseButton");
 const orderContent = document.querySelector(".orderContent");
-const badge = document.querySelector(".badge");
-
-
-
-let badgeCount;
-
 
 // Shopping cart icon
 shoppingCart.addEventListener("click", (e) => {
@@ -45,9 +39,7 @@ cartCloseButton.addEventListener("click", (e) => {
 
 // Badge section
 
-function increaseBadge() {
-    badge.innerHTML = badgeCount++
-}
+
 
 const orderButton = document.querySelectorAll('.orderBtn');
 for (let i = 0; i < orderButton.length; i++) {
@@ -88,8 +80,11 @@ function addItemToCart (itemName, itemPrice) {
         `
     cartStructure.innerHTML = cartContent;
     cartBody.append(cartStructure);
-    updateCart()
+    updateCart();
+    updateBadge();
 }
+
+
 
 
 function updateCart() {
@@ -100,8 +95,8 @@ function updateCart() {
             const buttonClicked = e.target
             buttonClicked.parentElement.parentElement.remove();
             updateCartTotal();
-            console.log('Remove Button clicked')
-        })
+            reduceBadge()
+        }) 
     }
 
     const quantityInputs = document.getElementsByClassName("cartQuantityInput");
@@ -112,7 +107,18 @@ function updateCart() {
 }
 
 
+let count = 0;
+function updateBadge() {
+    let badgeCount = document.getElementsByClassName("badge")[0].innerText;
+    const increment = parseInt(badgeCount) + 1;
+    document.getElementsByClassName("badge")[0].innerText = increment;
+}
 
+function reduceBadge() {
+    const cartItemContainer = document.getElementsByClassName("cartContainer")[0];
+    const cartRows = cartItemContainer.getElementsByClassName("cartRow");
+    document.getElementsByClassName("badge")[0].innerText = cartRows.length;
+}
 
 // function storeInLocalStorage (name, price) {
 //     const oldItems = JSON.parse(localStorage.getItem("orderArr")) || [];
