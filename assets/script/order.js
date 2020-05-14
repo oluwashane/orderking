@@ -17,29 +17,32 @@ cartCloseButton.addEventListener("click", (e) => {
     e.preventDefault();
 })
 
-// window.addEventListener('load', function(e) {
-//     const checkStorage = JSON.parse(localStorage.getItem("orderArr"));
-//     if (!checkStorage) {
-//         // this.console.log("No storage allocated")
-//     } else {
-//         badgeCount = checkStorage.length;
-//         increaseBadge()
-//         checkStorage.forEach((data) => {
-//             cartBody.innerHTML += `
-//                 <tr>
-//                     <th scope="row"></th>
-//                     <td>${data.name}</td>
-//                     <td>${data.price}</td>
-//                     <td><input type="button" value="x"></td>
-//                 </tr>`
-//         })
-//     }
-//     e.preventDefault()
-// })
 
-// Badge section
-
-
+// Load items in local storage
+window.addEventListener('load', function(e) {
+    const checkStorage = JSON.parse(localStorage.getItem("orderArr"));
+    let cartBody = document.getElementsByClassName("cartContainer")[0];
+    if (!checkStorage) {
+        return console.log("Nothing in Local Storage");
+    }
+    checkStorage.forEach((data) => {
+        let item = `
+            <tr class="cartRow">
+                <th scope="row">
+                    <input type="text" name="quantity" class="cartQuantityInput" value = 1>
+                </th>
+                <td class="cart-item-name itemName">${data.title}</td>
+                <td class="cartPrice">${data.price}</td>
+                <td><input type="button" value="x" class="removeOrder"></td>
+            </tr>
+        `
+        cartBody.innerHTML += item;
+    })
+    updateCart();
+    updateBadge();
+    updateCartTotal()
+    e.preventDefault()
+})
 
 const orderButton = document.querySelectorAll('.orderBtn');
 for (let i = 0; i < orderButton.length; i++) {
@@ -57,7 +60,6 @@ function addClickedItem (e) {
     e.preventDefault();
 }
 
-
 function addItemToCart (itemName, itemPrice) {
     const cartStructure = document.createElement('tr');
     cartStructure.className ='cartRow';
@@ -65,11 +67,13 @@ function addItemToCart (itemName, itemPrice) {
     const cartItemName = cartBody.getElementsByClassName("cart-item-name");
     for (let i = 0; i < cartItemName.length; i++) {
         if (cartItemName[i].innerText == itemName) {
-            alert("This item is already added to the cart");
+            // alert("This item is already added to the cart");
+            showToast("This item is already added to the cart", "#FFCC00")
             return
+            
         }
     }
-    // showToast()
+    showToast('Item Added Successfully', 'rgb(7, 160, 7)');
     const cartContent = `
                 <th scope="row">
                     <input type="text" name="quantity" class="cartQuantityInput" value = 1>
@@ -82,10 +86,8 @@ function addItemToCart (itemName, itemPrice) {
     cartBody.append(cartStructure);
     updateCart();
     updateBadge();
+    storeInLocalStorage(itemName, itemPrice);
 }
-
-
-
 
 function updateCart() {
     const removeCartItemButtons = document.getElementsByClassName("removeOrder");
@@ -94,8 +96,9 @@ function updateCart() {
         button.addEventListener('click', (e) => {
             const buttonClicked = e.target
             buttonClicked.parentElement.parentElement.remove();
+            removeItemInStorage();
             updateCartTotal();
-            reduceBadge()
+            updateBadge();
         }) 
     }
 
@@ -106,31 +109,49 @@ function updateCart() {
     }
 }
 
-
-let count = 0;
 function updateBadge() {
-    let badgeCount = document.getElementsByClassName("badge")[0].innerText;
-    const increment = parseInt(badgeCount) + 1;
-    document.getElementsByClassName("badge")[0].innerText = increment;
-}
-
-function reduceBadge() {
     const cartItemContainer = document.getElementsByClassName("cartContainer")[0];
     const cartRows = cartItemContainer.getElementsByClassName("cartRow");
     document.getElementsByClassName("badge")[0].innerText = cartRows.length;
 }
 
-// function storeInLocalStorage (name, price) {
-//     const oldItems = JSON.parse(localStorage.getItem("orderArr")) || [];
-//     const order = { 
-//         name,
-//         price
-//     }
-//     oldItems.push(order);
-//     localStorage.setItem("orderArr", JSON.stringify(oldItems));
-// }
+function showToast(message, color) {
+    const toastMessage = document.getElementById("message");
+    toastMessage.innerHTML = `<p>${message}</p>`;
+    toastMessage.style.display = "block";
+    toastMessage.style.backgroundColor = color;
+    console.log(message)
+    setTimeout(removeToast, 2000)
+}
+
+function removeToast() {
+    const toastMessage = document.getElementById("message");
+    toastMessage.style.display = "none";
+}
 
 
+
+function storeInLocalStorage (title, price) {
+    const oldItems = JSON.parse(localStorage.getItem("orderArr")) || [];
+    const order = { 
+        title,
+        price
+    }
+    oldItems.push(order);
+    localStorage.setItem("orderArr", JSON.stringify(oldItems));
+}
+
+function removeItemInStorage() {
+    localStorage.clear("orderArr");
+    const cartContainer = document.getElementsByClassName("cartContainer")[0];
+    const cartRow =  cartContainer.getElementsByClassName("cartRow")
+    for(let i = 0; i < cartRow.length; i++) {
+        const cartRowIn = cartRow[i];
+        const cartItemName = cartRowIn.getElementsByClassName('cart-item-name')[0].innerHTML;
+        const cartItemPrice= cartRowIn.getElementsByClassName('cartPrice')[0].innerHTML;
+        storeInLocalStorage(cartItemName, cartItemPrice);
+    }
+}
 
 function quantityChanged(e) {
     const input = e.target;
@@ -140,8 +161,6 @@ function quantityChanged(e) {
     }
     updateCartTotal()
 }
-
-
 
 function updateCartTotal() {
     const cartItemContainer = document.getElementsByClassName("cartContainer")[0];
@@ -159,8 +178,3 @@ function updateCartTotal() {
     total = Math.round(total * 100)/100
     document.getElementsByClassName("cartTotalPrice")[0].innerText = `₦${total}`;
 }
-
-
-
-
-

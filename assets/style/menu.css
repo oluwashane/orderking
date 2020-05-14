@@ -68,6 +68,32 @@
     color: #438496;
 }
 
+
+/* toast */
+#toast {
+    text-align: center;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    top: 150px;
+}
+
+.toastContent {
+    width: 60%;
+    margin: auto;
+}
+
+.toastContent #message {
+    padding: 20px 0 5px 0;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    /* background: rgb(7, 160, 7); */
+    display: none;
+}
+
 .menu {
     padding: 5rem; 
 }
