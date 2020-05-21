@@ -98,7 +98,9 @@
     padding: 5rem; 
 }
 
-
+#menuItem {
+    max-width: 40%;
+}
 
 .menuPicture {
     width: 100%;

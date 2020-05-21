@@ -50,51 +50,27 @@ async function loadData() {
 }
 
 async function loadMenu() {
-//     const url = 'http://localhost:5000/menu';
-//     const menuRawData = await fetch(url);
-//     if (!menuRawData.ok) {
-//         return alert(menuRawData.status);
-//     }
-//     const items = await menuRawData.json();
-//     items.forEach((item) => {
-//         // console.log({
-//         //     name : item.name,
-//         //     image : item.image,
-//         //     price : item.price,
-//         //     _id: item._id
-//         // })
-//         const menuParent = document.querySelector(".menu");
-//         menuParent.innerHTML += `
-//             <div class="col-12 col-sm-6 col-md-4 menuItem" id="menuItem">
-//                 <img src=${item.image} class="menuPicture" alt="#">
-//                 <div class="menuContent">
-//                     <p class="lead menuItemName">${item.name}</p>
-//                     <p class="lead menuItemPrice">${item.price}</p>
-//                 </div>
-//                 <button class="orderBtn">order</button>
-//             </div>
-//         `
-//     })
+    const url = 'https://orderking.herokuapp.com/menu';
+    const menuRawData = await fetch(url);
+    if (!menuRawData.ok) {
+        return alert(menuRawData.status);
+    }
+    const items = await menuRawData.json();
+    items.forEach((item) => {
+        const menuParent = document.querySelector(".menu");
+        menuParent.innerHTML += `
+            <div class="col-12 col-sm-6 col-md-4 menuItem" id="menuItem">
+                <img src=${item.image} class="menuPicture" alt="#">
+                <div class="menuContent">
+                    <p class="lead menuItemName">${item.name}</p>
+                    <p class="lead menuItemPrice"><span>&#8358;</span>${item.price}</p>
+                </div>
+                <button class="orderBtn">order</button>
+            </div>
+        `
+    })
     
-    // menuParent.innerHTML = `
-    //     <div class="col-12 col-sm-6 col-md-4 menuItem" id="menuItem">
-    //         <img src="../image/hot-dog-21074_640.jpg" class="menuPicture" alt="hotdog">
-    //         <div class="menuContent">
-    //                 <p class="lead menuItemName">HotDog</p>
-    //                 <p class="lead menuItemPrice">₦500</p>
-    //         </div>
-    //         <button class="orderBtn">order</button>
-    //     </div>
-    //     <div class="col-12 col-sm-6 col-md-4 menuItem" id="menuItem">
-    //             <img src="../image/hot-dog-21074_640.jpg" class="menuPicture" alt="hotdog">
-    //             <div class="menuContent">
-    //                 <p class="lead menuItemName">Cat fish</p>
-    //                 <p class="lead menuItemPrice">₦2500</p>
-    //             </div>
-    //             <button class="orderBtn">order</button>
-    //         </div>
-    //     `
-    // console.log('Menu loaded')
+    console.log('Menu loaded')
     const orderButton = document.querySelectorAll('.orderBtn');
     for (let i = 0; i < orderButton.length; i++) {
         const button = orderButton[i];
