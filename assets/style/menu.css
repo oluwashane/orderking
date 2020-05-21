@@ -95,10 +95,12 @@
 }
 
 .menu {
-    padding: 5rem; 
+    padding: 5rem;
 }
 
-
+#menuItem {
+    max-width: 100%;
+}
 
 .menuPicture {
     width: 100%;
@@ -233,11 +235,6 @@ footer{
     .menu {
         padding: 2rem; 
     }
-
-    /* .menuPicture {
-        width: 100%;
-        height: 60%;
-    } */
 }
 
 @media (max-width: 576px) {
