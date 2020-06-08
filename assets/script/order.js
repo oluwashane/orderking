@@ -50,7 +50,8 @@ async function loadData() {
 }
 
 async function loadMenu() {
-    const url = 'https://orderking.herokuapp.com/menu';
+    // orderking.herokuapp.com/menu
+    const url = 'http://localhost:5000/menu';
     const menuRawData = await fetch(url);
     if (!menuRawData.ok) {
         return alert(menuRawData.status);
@@ -221,3 +222,27 @@ function updateCartTotal() {
     total = Math.round(total * 100)/100
     document.getElementsByClassName("cartTotalPrice")[0].innerText = `₦${total}`;
 }
+
+
+// Enable pusher logging - don't include this in production
+Pusher.logToConsole = true;
+
+const pusher = new Pusher('4681ba5213914b854547', {
+    cluster: 'mt1'
+});
+
+const channel = pusher.subscribe('orderKing-menu');
+channel.bind('order-item', function(data) {
+    const menu = data.data;
+    const menuParent = document.querySelector(".menu");
+    menuParent.innerHTML += `
+            <div class="col-12 col-sm-6 col-md-4 menuItem" id="menuItem">
+                <img src=${menu.image} class="menuPicture" alt="#">
+                <div class="menuContent">
+                    <p class="lead menuItemName">${menu.name}</p>
+                    <p class="lead menuItemPrice"><span>&#8358;</span>${menu.price}</p>
+                </div>
+                <button class="orderBtn">order</button>
+            </div>
+        `
+});
